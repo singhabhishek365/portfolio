@@ -10,70 +10,141 @@ class ProjectsWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // Left Container
-            Container(
-              height: 250,
-              width: 300,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.horizontal(
-                  left: Radius.circular(8),
-                ),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
+        LayoutBuilder(builder: (context, constraints) {
+          // Use LayoutBuilder to make the layout responsive
+          bool isSmallScreen = constraints.maxWidth < 800;
+          return isSmallScreen
+              ? Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      projectList!.projectName!,
-                      style: GoogleFonts.comfortaa(
-                        textStyle: const TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w900,
-                          color: Colors.black,
+                    // Left Container
+                    Container(
+                      height: 250,
+                      width: 300,
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.horizontal(
+                          left: Radius.circular(8),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              projectList!.projectName!,
+                              style: GoogleFonts.comfortaa(
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              projectList!.projectDescription!,
+                              style: GoogleFonts.comfortaa(
+                                textStyle: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black.withOpacity(0.8),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      projectList!.projectDescription!,
-                      style: GoogleFonts.comfortaa(
-                        textStyle: TextStyle(
-                          fontSize: 15,
-                          fontWeight: FontWeight.w700,
-                          color: Colors.black.withOpacity(0.8),
+                    // Right Container with Image
+                    ClipRRect(
+                      borderRadius: const BorderRadius.horizontal(
+                        right: Radius.circular(8),
+                      ),
+                      child: Container(
+                        height: 250,
+                        width: 300,
+                        color: Colors
+                            .blue, // Background color for the right container
+                        child: Image.asset(
+                          projectList!.image!,
+                          fit: BoxFit.cover,
                         ),
                       ),
                     ),
                   ],
-                ),
-              ),
-            ),
-            // Right Container with Image
-            ClipRRect(
-              borderRadius: const BorderRadius.horizontal(
-                right: Radius.circular(8),
-              ),
-              child: Container(
-                height: 250,
-                width: 300,
-                color: Colors.blue, // Background color for the right container
-                child: Image.asset(
-                  projectList!.image!,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
-        ),
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    // Left Container
+                    Container(
+                      height: 250,
+                      width: 300,
+                      alignment: Alignment.center,
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.horizontal(
+                          left: Radius.circular(8),
+                        ),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              projectList!.projectName!,
+                              style: GoogleFonts.comfortaa(
+                                textStyle: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w900,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              projectList!.projectDescription!,
+                              style: GoogleFonts.comfortaa(
+                                textStyle: TextStyle(
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black.withOpacity(0.8),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    // Right Container with Image
+                    ClipRRect(
+                      borderRadius: const BorderRadius.horizontal(
+                        right: Radius.circular(8),
+                      ),
+                      child: Container(
+                        height: 250,
+                        width: 300,
+                        color: Colors
+                            .blue, // Background color for the right container
+                        child: Image.asset(
+                          projectList!.image!,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ],
+                );
+        }),
         const SizedBox(height: 40),
       ],
     );

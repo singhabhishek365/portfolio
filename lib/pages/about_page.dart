@@ -33,7 +33,8 @@ class AboutPage extends StatelessWidget {
                             const SizedBox(height: 20),
                             const CircleAvatar(
                               radius: 120, // Adjust size for smaller screens
-                              backgroundColor: Color(0xFFFDC435),
+                              backgroundImage:
+                                  AssetImage("assets/png/abhi.webp"),
                             ),
                           ],
                         )
@@ -49,9 +50,9 @@ class AboutPage extends StatelessWidget {
                             const Expanded(
                               flex: 1,
                               child: CircleAvatar(
-                                radius: 250,
-                                backgroundColor: Color(0xFFFDC435),
-                              ),
+                                  radius: 250,
+                                  backgroundImage:
+                                      AssetImage("assets/png/abhi.webp")),
                             ),
                           ],
                         ),
@@ -85,6 +86,9 @@ class AboutPage extends StatelessWidget {
                 ),
               ),
             ),
+            const SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
