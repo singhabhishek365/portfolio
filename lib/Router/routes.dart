@@ -13,5 +13,13 @@ final router = GoRouter(
       path: '/about',
       builder: (context, state) => const AboutPage(),
     ),
+    GoRoute(
+      path: '/projects',
+      builder: (context, state) => const AboutPage(),
+    ),
+    GoRoute(
+      path: '/contacts',
+      builder: (context, state) => const AboutPage(),
+    ),
   ],
 );

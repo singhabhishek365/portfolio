@@ -101,13 +101,12 @@ class HeaderWidget extends StatelessWidget {
       children: [
         _buildTextButton('About', '/about', isMobile, context),
         const SizedBox(width: 10),
-        _buildTextButton('Projects', '/project', isMobile, context),
+        _buildTextButton('Projects', '/projects', isMobile, context),
         const SizedBox(width: 10),
         _buildTextButton('Contacts', '/contacts', isMobile, context),
       ],
     );
   }
-
   Widget _buildTextButton(
       String label, String route, bool isMobile, BuildContext context) {
     return TextButton(

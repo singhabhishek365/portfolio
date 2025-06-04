@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:abhishek_portfolio/widgets/header_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
-
 import '../utils/helper.dart';
 
 class AboutPage extends StatelessWidget {
